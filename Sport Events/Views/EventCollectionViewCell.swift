@@ -11,7 +11,6 @@ import UIKit
 class EventCollectionViewCell: UICollectionViewCell {
     
     // MARK: - private properties
-    private weak var timer:Timer! // used to update the countdown
     private var eventDateInEpoch: Int = 0 // holds the event date in epoch (Unix) time
     
 
@@ -37,19 +36,24 @@ class EventCollectionViewCell: UICollectionViewCell {
         updateCountdown(eventDate)
         eventDetailLabel.text = event.replacingOccurrences(of: " - ", with: "\n")
         self.isFavorite = isFavorite
-        // set a timer for 1 sec, to update the countdown
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] _ in
-            // don't want to keep a reference to the timer if the cell is thrown out
-            guard let self = self else { return }
-            self.updateCountdown(self.eventDateInEpoch)
-        })
+
 
     }
+    
+    
+    // MARK: - refresh timeout
+    
+    func refreshTimeout(){
+        updateCountdown(eventDateInEpoch)
+    }
+    
+    
+    
     
     // receives a date in epoch time
     // calculates the difference in d/h/m/s
     // and updates the countDownLabel
-    func updateCountdown(_ eventDateInEpoch: Int){
+    private func updateCountdown(_ eventDateInEpoch: Int){
         self.eventDateInEpoch = eventDateInEpoch
         // calculate the time difference between today and the event date
         let dateNow = Date()
@@ -68,10 +72,10 @@ class EventCollectionViewCell: UICollectionViewCell {
         
         // function is  called from another queue (due to timer)
         // dispatch it to the main queue (since it's UI stuff)
-        DispatchQueue.main.async {
+        // DispatchQueue.main.async {
             self.countDownLabel?.text = string
             self.countDownLabel?.setNeedsDisplay()
-        }
+        // }
  
     }
     
@@ -95,7 +99,6 @@ class EventCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         starButton.isEnabled = false
-        timer?.invalidate() // lose the timer
     }
 
 }

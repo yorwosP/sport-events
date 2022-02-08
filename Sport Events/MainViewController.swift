@@ -17,6 +17,10 @@ class MainViewController: UIViewController {
             return Int(Date().timeIntervalSince1970)
         }
     }
+    
+    
+    
+    
 
     
     // MARK: - outlets
@@ -29,10 +33,14 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         setupTable()
         fetchSportEvents()
-
+        
+        // start the timer to update the cells
+        let timer = Timer(timeInterval: 1, target: self, selector: #selector(refreshTimeouts), userInfo: nil, repeats: true)
+        RunLoop.current.add(timer, forMode: .common)
         let topLogo = UIImageView(image: UIImage(named: "top logo small"))
         topLogo.contentMode = .scaleAspectFit
         navigationItem.titleView = topLogo
+        
     }
 
     
@@ -105,7 +113,31 @@ class MainViewController: UIViewController {
         }.resume()
         
     }
+
+    // MARK: - refresh timeout in every visible cell
+    @objc private func refreshTimeouts(){
+        guard let visibleTableViewCells = tableView.visibleCells as? [SportTableViewCell] else{
+            return
+        }
+        
+        for tableViewCell in visibleTableViewCells{
+            guard let visibleCollectionViewItems = tableViewCell.eventsCollectionView.visibleCells as? [EventCollectionViewCell] else { return }
+            for visibleItem in visibleCollectionViewItems{
+                visibleItem.refreshTimeout()
+            }
+
+                
+            }
+
+        }
+    
+        
+
+
 }
+
+
+
 
 // MARK: - tableView methods
 extension MainViewController: UITableViewDelegate, UITableViewDataSource{

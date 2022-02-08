@@ -148,6 +148,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
         
         // register the custom NIB (collection View) for cell reuse
         cell.eventsCollectionView.register(EventCollectionViewCell.nib(), forCellWithReuseIdentifier: EventCollectionViewCell.identifier)
+        
         return cell
     }
     

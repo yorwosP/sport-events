@@ -31,9 +31,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="X84-bk-ma7">
-                                <rect key="frame" x="187" y="386" width="37" height="125"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="X84-bk-ma7">
+                                <rect key="frame" x="189" y="457" width="37" height="37"/>
                                 <color key="color" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
@@ -42,8 +41,10 @@
                         <constraints>
                             <constraint firstItem="npg-OY-39y" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="CLY-vl-NgL"/>
                             <constraint firstItem="npg-OY-39y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="FIY-ro-waa"/>
+                            <constraint firstItem="X84-bk-ma7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GiZ-Td-OBB"/>
                             <constraint firstItem="npg-OY-39y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="H6E-W7-GzA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="npg-OY-39y" secondAttribute="trailing" id="JQh-fl-yFl"/>
+                            <constraint firstItem="X84-bk-ma7" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="RVE-po-XWi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sport Events" largeTitleDisplayMode="always" id="ID4-y0-AWA"/>

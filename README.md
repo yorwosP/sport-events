@@ -1,7 +1,19 @@
+# Updates
+## 9/2/2022 
+
+- Fixed the missing constraints in the activity indicator
+- Set the collection view's estimated size to none
+- Using only one timer in the view controller (it runs in the common Run Loop, so countdown is not interrupted by user interaction)
+
 # Sport Events
 
-A small iOS app showing upcoming sport events. The events are retrieved from an API and shown in a table view, where each row shows the sport type and related events sorted by event start date. 
+A small iOS app showing upcoming sport events. The events are retrieved from an API and shown in a table view, where each row shows the sport type and related events sorted by event start date.  The table view
 
+    
+
+
+![screenshot on iphone 13 mini](Assets/screenshot-iphone-13-mini.PNG)
+*(screenshot of the app running on an iPhone 13 mini)*
 
 ## Features
 
@@ -57,7 +69,7 @@ VC holds the actual table view and it is set as its data source and delegate.
 
 Each time  table view asks  for a row (cell), VC will set the Table cell's Collection View cell delegate and data source to itself. So each CV is linked to the view controller as well
 
-VC implements the collection view methods so it can pass data to the event cells when asked (more info below in implementation details).
+VC implements the collection view methods so it can pass data to the event cells when asked (more info below in [implementation details](#3-coordination-mapping-between-table-view-and-collection-view)).
 
 VC is also responsible for fetching (and decoding) the data from the API. 
 Since throughout the app lifecycle, only one request is sent, it was decided to do that in VC rather than the model for simplicity. 

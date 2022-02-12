@@ -1,4 +1,12 @@
 # Updates
+
+## 12/2/2022 - Working on iOS 12 as well
+
+- Found out that the app was crashing on older iphones (ios 12.x), due to *appearance:standard* set for the uinavigation bar (not supported in iOS 12, but no warnings in XCode)
+- In iOS 12 the cell separator was smaller than the size of the table leaving artifacts. Now using a detail height of 2 (instead of 0) providing the a space between the collapsed cells
+- Some auto-layout rules were conflicting in iOS 12, leading to incorrect appearance of collection view in some cases. Cleaned up the auto-layout rules so they don't conflict anymore.
+- Made the top logo (on navigation bar) transparent.
+  
 ## 9/2/2022 
 
 - Fixed the missing constraints in the activity indicator
@@ -7,12 +15,13 @@
 
 # Sport Events
 
-A small iOS app showing upcoming sport events. The events are retrieved from an API and shown in a table view, where each row shows the sport type and related events sorted by event start date.  The table view
+A small iOS app showing upcoming sport events. The events are retrieved from an API and shown in a table view, where each row shows the sport type and related events sorted by event start date.  
 
     
 
 
-![screenshot on iphone 13 mini](Assets/screenshot-iphone-13-mini.PNG)
+![screenshot on iphone 13 mini](Assets/screenshot-iphone-13-mini.PNG)  
+
 *(screenshot of the app running on an iPhone 13 mini)*
 
 ## Features
@@ -106,7 +115,7 @@ However, for the collection views this cannot be done: collection views are crea
 
 ### 4. Expand/collapse the cells
 Each time a row is selected (didSelectRowAt), VC will toggle the isSelected property in its array and reload the specific row (reloadRows)
-This will inform the corresponding TableView cell for the new data. The cell has a constraint for the height (fixed size) of its "details" view. If the isSelected is set to false the height constraint is set to 0, else is set to the predefined height. Due to reloadRows this action is also animated. 
+This will inform the corresponding TableView cell for the new data. The cell has a constraint for the height (fixed size) of its "details" view. If the isSelected is set to false the height constraint is set to ~~0~~ 2, else is set to the predefined height. Due to reloadRows this action is also animated. 
 Cell has also an events count label which sits on top of the expand icon. 
 Its opacity is set to either 0 if isSelected is set (true) or 1 if it is false. The opacity change is animated (UIView.animate)
 
@@ -123,9 +132,15 @@ the cell view sets its star button to enabled/disabled which changes its appeara
 
 ### 6. Countdown to event
 
-This is handled by the collection view cell as follows: 
-Cell has a function that takes the epoch time, calculates the difference to the current date/time and breaks it to days, hours, minutes, seconds (using Calendar's dateComponents). It also stores the epoch time 
-Each cell also has a timer running each second and calling this function. Timer is invalidated in prepare for reuse.
+(**Moved the Timer from each cell to the main**)
+
+~~This is handled by the collection view cell as follows: Cell has a function that takes the epoch time, calculates the difference to the current date/time and breaks it to days, hours, minutes, seconds (using Calendar's dateComponents). It also stores the epoch time Each cell also has a timer running each second and calling this function. Timer is invalidated in prepare for reuse~~
+
+#### MainViewController
+A Timer is set in the main VC and added in the RunLoop (current). Each second *refreshTimeouts* is called. This method goes through all visible TV cells and gets all its visible CV items. For each one it calls its *refreshTimeout* method
+
+#### EventCollectionViewCell
+*refreshTimeout* calculates the difference to the current date/time and breaks it to days, hours, minutes, seconds (using Calendar's dateComponents). It also stores the epoch time 
 
 
 ## TODO
@@ -133,5 +148,5 @@ Each cell also has a timer running each second and calling this function. Timer 
 - handle connection error and give an option to the user to retry
 - handle json invalid data
 - decouple model and VC 
-- maybe use a single timer in the VC that will run in the main queue (no interruption upon user interaction) 
+- ~~maybe use a single timer in the VC that will run in the main queue (no interruption upon user interaction)~~ 
 

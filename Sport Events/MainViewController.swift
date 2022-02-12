@@ -37,9 +37,12 @@ class MainViewController: UIViewController {
         // start the timer to update the cells
         let timer = Timer(timeInterval: 1, target: self, selector: #selector(refreshTimeouts), userInfo: nil, repeats: true)
         RunLoop.current.add(timer, forMode: .common)
+        
+        // add the logo on the navigation bar
         let topLogo = UIImageView(image: UIImage(named: "top logo small"))
         topLogo.contentMode = .scaleAspectFit
         navigationItem.titleView = topLogo
+
         
     }
 
@@ -186,6 +189,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     
     // if row is selected, toggle the expand/collapsed state
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
         sports[indexPath.row].isSelected = !sports[indexPath.row].isSelected
         // use reloadRows also for the animation it provides
         tableView.reloadRows(at: [indexPath], with: .none)

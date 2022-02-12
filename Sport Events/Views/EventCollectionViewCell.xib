@@ -34,32 +34,30 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gi5-Vz-PU9">
-                                <rect key="frame" x="4" y="81" width="107" height="24"/>
+                                <rect key="frame" x="18.5" y="81" width="78.5" height="24"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Ilya Novikov 
 Pavel Medvedev</string>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="10"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLT-Sh-4cU">
-                                <rect key="frame" x="20" y="8" width="75" height="14.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLT-Sh-4cU">
+                                <rect key="frame" x="31.5" y="8" width="52.5" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.85380677502564706" green="0.62820822628206918" blue="0.43268856914105996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.06738422811" green="0.075417259707500003" blue="0.099516354500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.06738422811" green="0.075456283989999998" blue="0.099516354500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="YLT-Sh-4cU" firstAttribute="top" secondItem="mwV-Np-JEN" secondAttribute="top" priority="900" constant="8" id="A05-7S-lYr"/>
-                            <constraint firstItem="DM5-oa-xMI" firstAttribute="top" secondItem="YLT-Sh-4cU" secondAttribute="bottom" priority="900" constant="8" symbolic="YES" id="DX1-Cc-cSH"/>
+                            <constraint firstItem="YLT-Sh-4cU" firstAttribute="top" secondItem="mwV-Np-JEN" secondAttribute="top" priority="250" constant="8" id="A05-7S-lYr"/>
+                            <constraint firstItem="DM5-oa-xMI" firstAttribute="top" secondItem="YLT-Sh-4cU" secondAttribute="bottom" priority="250" constant="8" symbolic="YES" id="DX1-Cc-cSH"/>
                             <constraint firstItem="DM5-oa-xMI" firstAttribute="centerX" secondItem="mwV-Np-JEN" secondAttribute="centerX" id="F7c-zS-n4p"/>
-                            <constraint firstAttribute="trailing" secondItem="Gi5-Vz-PU9" secondAttribute="trailing" priority="900" constant="4" id="Xow-M8-86D"/>
+                            <constraint firstItem="Gi5-Vz-PU9" firstAttribute="centerX" secondItem="mwV-Np-JEN" secondAttribute="centerX" id="MZn-Bq-HOr"/>
                             <constraint firstAttribute="height" priority="900" constant="115" id="a2V-4N-1Fd"/>
                             <constraint firstAttribute="width" priority="900" constant="115" id="cBY-qe-d2n"/>
-                            <constraint firstAttribute="trailing" secondItem="YLT-Sh-4cU" secondAttribute="trailing" priority="900" constant="20" symbolic="YES" id="cjN-28-06E"/>
-                            <constraint firstAttribute="bottom" secondItem="Gi5-Vz-PU9" secondAttribute="bottom" priority="900" constant="10" id="jfU-RA-0CS"/>
-                            <constraint firstItem="YLT-Sh-4cU" firstAttribute="leading" secondItem="mwV-Np-JEN" secondAttribute="leading" priority="900" constant="20" symbolic="YES" id="xWA-6X-OAH"/>
-                            <constraint firstItem="Gi5-Vz-PU9" firstAttribute="leading" secondItem="mwV-Np-JEN" secondAttribute="leading" priority="900" constant="4" id="zIm-LJ-WWW"/>
+                            <constraint firstAttribute="bottom" secondItem="Gi5-Vz-PU9" secondAttribute="bottom" priority="250" constant="10" id="jfU-RA-0CS"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -72,6 +70,7 @@ Pavel Medvedev</string>
                 <constraint firstItem="mwV-Np-JEN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="M5K-pi-7Zb"/>
                 <constraint firstItem="mwV-Np-JEN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dA4-Ig-wDK"/>
                 <constraint firstAttribute="trailing" secondItem="mwV-Np-JEN" secondAttribute="trailing" id="qc3-Tn-pWU"/>
+                <constraint firstItem="YLT-Sh-4cU" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="r1R-JI-59K"/>
             </constraints>
             <size key="customSize" width="212" height="201"/>
             <connections>

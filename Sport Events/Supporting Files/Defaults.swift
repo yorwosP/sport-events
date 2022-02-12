@@ -40,7 +40,7 @@ enum UI{
     
     
     static let expandedHeight: CGFloat = 125
-    static let collapsedHeight: CGFloat = 0
+    static let collapsedHeight: CGFloat = 2
     static let expandedIcon = "∧"
     static let collapsedIcon = "∨"
     static let estimatedRowHeight:CGFloat = 180
